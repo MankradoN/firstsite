@@ -11,6 +11,9 @@ const Item = (props) => {
     props.setTotal(props.totalTotal - props.price);
     setCounter(counter - 1);
   };
+  const removeFromCost = () => {
+    props.setTotal(props.totalTotal - itemTotal);
+  };
   const itemTotal = props.price * counter;
 
   const [basketbutton, changeAddToCart] = useState(true);
@@ -42,7 +45,12 @@ const Item = (props) => {
           <h2>{itemTotal}</h2>
           <button
             className="button"
-            onClick={() => props.removeItem(props.product)}
+            onClick={() => {
+              {
+                removeFromCost();
+                props.removeItem(props.product);
+              }
+            }}
           >
             x
           </button>

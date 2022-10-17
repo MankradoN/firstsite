@@ -7,6 +7,7 @@ export default function Home() {
     const products = productsBasket.filter(
       (item) => item.product !== productName
     );
+
     basketUpdate(products);
   };
 
@@ -82,7 +83,12 @@ export default function Home() {
     <>
       <div className="saleItems">
         {productsPage.map((products) => (
-          <Product {...products} addProductsToBasket={addProductsToBasket} />
+          <Product
+            {...products}
+            addProductsToBasket={addProductsToBasket}
+            setTotal={setTotal}
+            totalTotal={total}
+          />
         ))}
       </div>
       <div className="basketPage">

@@ -1,5 +1,8 @@
 import { useState } from "react";
 const Product = (props) => {
+  const addToCost = () => {
+    props.setTotal(props.totalTotal + props.price);
+  };
   return (
     <>
       <div className="wholeProduct">
@@ -14,7 +17,12 @@ const Product = (props) => {
           </div>
           <h3>{props.description}</h3>
           <strong>£{props.price}</strong>
-          <button onClick={() => props.addProductsToBasket(props)}>
+          <button
+            onClick={() => {
+              addToCost();
+              props.addProductsToBasket(props);
+            }}
+          >
             Add to basket
           </button>
         </div>
